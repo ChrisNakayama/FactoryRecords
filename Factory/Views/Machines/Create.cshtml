@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h2>Add a new Machine</h2>
+<hr />
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  //@Html.LabelFor(model => model.Birthday)
+ // @Html.EditorFor(model => model.Birthday)
+
+  //Since we saved the list of engineers inside ViewBag.EngineerId, we can provide that here as a string name.
+  @Html.Label("Select engineer")
+  @Html.DropDownList("EngineerId")
+
+  <input type="submit" value="Add new machine" class="btn btn-primary" />
+}
+
+<p>@Html.ActionLink("Show All Machines", "Index", new {}, new { @class = "btn btn-outline-primary" })</p>
